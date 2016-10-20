@@ -84,10 +84,10 @@ $ mvn dependency:tree
 + GET eller POST /api/v1/servicestatus (Get confirmation that insurance is active now - return Service+Status) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
 
 ## Model
-product: What product user want - Product description
-user: User information 
-service: Type of insurance service user got - Service information 
-status: payment by user and service status - Pending, Active, Cancel 
+- product: What product user want, Product description
+- user: User information 
+- service: Type of insurance service user got, Service information 
+- status: payment by user and service status, Pending, Active, Cancel 
 
 ## REST API
 - GET and POST /api/v1/productuser (view) -> [GET and POST](http://localhost:8080/api/v1/productuser) 
