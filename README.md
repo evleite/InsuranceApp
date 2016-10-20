@@ -40,42 +40,44 @@ $ mvn dependency:tree
 - Integrasjonslag: Expert team responsavel to find the best product from all companies available.
 - Fagsystem: Products(1) available in Gjensidige, If, etc in accordance with clients needs.
 - Brevtjeneste: Service(2) information return to the must happy client.
+
 (1) List with all products available from company A located in their DB.
+
 (2) List of services with all details located in a common DB for all companies
 
 ## Overall flow
-* Opprett avtale: Klient -> Integrasjonslag
+#### Opprett avtale: Klient -> Integrasjonslag
 + Model:  type of product user want, information about user.
 + GET /api/v1/productuser (What is the product user want + user information - form) -> [Get](http://localhost:8080/api/v1/productuser) 
 + POST /api/v1/productuser (Send the product user want + user information - create) -> [POST](http://localhost:8080/api/v1/productuser) 
 
-* Opprett kunde: Integrasjonslag -> Fagsystem
+#### Opprett kunde: Integrasjonslag -> Fagsystem
 + Model: create user in the company with best deal available.
 + POST /api/v1/user (Send user information to create client in company A - create) -> [POST](http://localhost:8080/api/v1/user) 
-* Kundenummer: Fagsystem -> Integrasjonslag
+#### Kundenummer: Fagsystem -> Integrasjonslag
 + GET eller POST /api/v1/user (Send user client information - return clientnumber) -> [GET eller POST](http://localhost:8080/api/v1/user) 
 
-* Opprett avtale: Integrasjonslag -> Fagsystem
+#### Opprett avtale: Integrasjonslag -> Fagsystem
 + Model: type of product user want
 + POST /api/v1/product (Send information about product user want - form) -> [POST](http://localhost:8080/api/v1/product) 
-* avtalenummer: Fagsystem -> Integrasjonslag
+#### avtalenummer: Fagsystem -> Integrasjonslag
 + GET eller POST /api/v1/service (Send number of the best service available - return servicenumber) -> [GET eller POST](http://localhost:8080/api/v1/service) 
 
-* Send avtale til kunde: Integrasjonslag(Brevtjneste) -> Klient 
+#### Send avtale til kunde: Integrasjonslag(Brevtjneste) -> Klient 
 + Model: type of service user get
 + GET eller POST /api/v1/servicestatus (Get service information from  servicenumber - return serviceinformation) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
-* Status på utsendelse: Klient -> Integrasjonslag(Brevtjneste) 
+#### Status på utsendelse: Klient -> Integrasjonslag(Brevtjneste) 
 + Model: service payment status from user
 + GET /api/v1/status (Get confirmation of payment - Status) -> [GET](http://localhost:8080/api/v1/status) 
 
-* Oppdater status til "avtale sendt": Integrasjonslag -> Fagsystem
+#### Oppdater status til "avtale sendt": Integrasjonslag -> Fagsystem
 + Model: service payment status from user
 + GET /api/v1/status (Get confirmation of payment from user - return Status) -> [GET](http://localhost:8080/api/v1/status) 
-* avtalestatus: Fagsystem -> Integrasjonslag 
+#### avtalestatus: Fagsystem -> Integrasjonslag 
 + Model: service status from company A - Insurance is active
 + GET /api/v1/status (Get confirmation that insurance is active now - return Status) -> [GET](http://localhost:8080/api/v1/status) 
 
-* avtalenummer og status: Integrasjonslag -> Klient
+#### avtalenummer og status: Integrasjonslag -> Klient
 + Model: service information and it is active
 + GET eller POST /api/v1/servicestatus (Get confirmation that insurance is active now - return Service+Status) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
 
