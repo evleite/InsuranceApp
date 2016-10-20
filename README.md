@@ -5,12 +5,10 @@ Case insurance contract project for Spring Boot
 InsuranceApp is located on [https://github.com/pedalv/InsuranceApp.git](https://github.com/pedalv/InsuranceApp.git)
 
 ## Tools
-[Apache Maven](https://maven.apache.org/download.cgi) version: 3.3.9
-Maven home: D:\Tools\java\apache-maven-3.3.9
-[Java version](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html): 1.8.0_101, vendor: Oracle Corporation
-Java home: C:\Program Files (x86)\Java\jdk1.8.0_101\jre
-OS name: "windows 10", version: "10.0", arch: "x86", family: "dos"
-Download [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html#section=windows)
+- [Apache Maven](https://maven.apache.org/download.cgi) version: 3.3.9
+- [Java version](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html): 1.8.0_101, vendor: Oracle Corporation
+- OS name: "windows 10", version: "10.0", arch: "x86", family: "dos"
+- Download [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html#section=windows)
 
 ## Create project
 - [Start Spring Boot](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started)
@@ -53,19 +51,22 @@ $ mvn dependency:tree
 
 #### Opprett kunde: Integrasjonslag -> Fagsystem
 + Model: create user in the company with best deal available.
-+ POST /api/v1/user (Send user information to create client in company A - create) -> [POST](http://localhost:8080/api/v1/user) 
++ POST /api/v1/user (Send user information to create client in company A - create) -> [POST](http://localhost:8080/api/v1/user)
+
 #### Kundenummer: Fagsystem -> Integrasjonslag
 + GET eller POST /api/v1/user (Send user client information - return clientnumber) -> [GET eller POST](http://localhost:8080/api/v1/user) 
 
 #### Opprett avtale: Integrasjonslag -> Fagsystem
 + Model: type of product user want
 + POST /api/v1/product (Send information about product user want - form) -> [POST](http://localhost:8080/api/v1/product) 
+
 #### avtalenummer: Fagsystem -> Integrasjonslag
 + GET eller POST /api/v1/service (Send number of the best service available - return servicenumber) -> [GET eller POST](http://localhost:8080/api/v1/service) 
 
 #### Send avtale til kunde: Integrasjonslag(Brevtjneste) -> Klient 
 + Model: type of service user get
 + GET eller POST /api/v1/servicestatus (Get service information from  servicenumber - return serviceinformation) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
+
 #### Status på utsendelse: Klient -> Integrasjonslag(Brevtjneste) 
 + Model: service payment status from user
 + GET /api/v1/status (Get confirmation of payment - Status) -> [GET](http://localhost:8080/api/v1/status) 
@@ -73,6 +74,7 @@ $ mvn dependency:tree
 #### Oppdater status til "avtale sendt": Integrasjonslag -> Fagsystem
 + Model: service payment status from user
 + GET /api/v1/status (Get confirmation of payment from user - return Status) -> [GET](http://localhost:8080/api/v1/status) 
+
 #### avtalestatus: Fagsystem -> Integrasjonslag 
 + Model: service status from company A - Insurance is active
 + GET /api/v1/status (Get confirmation that insurance is active now - return Status) -> [GET](http://localhost:8080/api/v1/status) 
