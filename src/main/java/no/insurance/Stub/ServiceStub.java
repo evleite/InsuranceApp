@@ -22,13 +22,13 @@ public class ServiceStub {
     private static Long userId3 = 3L;
 
     static {
-        Service service = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5D);
+        Service service = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5);
         services.put(1L, service);
 
-        service = new Service(2L, userId2, Insurance.HOME.getValue(), "product got for my home", State.PAY.getValue(), 3450.5D);
+        service = new Service(2L, userId2, Insurance.HOME.getValue(), "product got for my home", State.PAY.getValue(), 3450.5);
         services.put(2L, service);
 
-        service = new Service(3L, userId3, Insurance.BOAT.getValue(), "product got for my boat", State.ACTIVE.getValue(), 3450.5D);
+        service = new Service(3L, userId3, Insurance.BOAT.getValue(), "product got for my boat", State.ACTIVE.getValue(), 3450.5);
         services.put(3L, service);
 
         /*

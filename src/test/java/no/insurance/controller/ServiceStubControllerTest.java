@@ -31,7 +31,7 @@ public class ServiceStubControllerTest {
     public void setUp() throws Exception {
         expectedServices = new ArrayList<Service>();
         userId1 = 1L;
-        expectedService = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5D);
+        expectedService = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5);
         expectedServices.add(expectedService);
 
         MockitoAnnotations.initMocks(this);
