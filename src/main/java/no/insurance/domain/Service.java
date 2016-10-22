@@ -3,6 +3,7 @@ package no.insurance.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by p on 22/10/2016.
@@ -12,11 +13,20 @@ public class Service {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
+    @NotNull
     Long userId;
+    @NotNull
     Integer type;
+    @NotNull
     String product;
+    @NotNull
     Integer state;
+    @NotNull
     Double price;
+
+    public Service() {
+
+    }
 
     public Service(Long id, Long userId, Integer type, String product, Integer state, Double price) {
         Id = id;

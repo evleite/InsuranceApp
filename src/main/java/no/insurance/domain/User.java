@@ -1,9 +1,13 @@
 package no.insurance.domain;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by p on 21/10/2016.
@@ -13,10 +17,27 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+    @NotNull
     String firstname;
+    @NotNull
     String lastname;
+    @NotNull
+    @Email
     String email;
+    @Size(min = 6, max = 15)
     String password;
+
+    public User(){
+
+    }
+
+    public User(Long id, String firstname, String lastname, String email, String password) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+    }
 
     public Long getId() {
         return id;
