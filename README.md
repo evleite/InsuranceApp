@@ -28,6 +28,17 @@ $ mvn dependency:tree
 ```
 - Open the projet [InsuranceApp](http://localhost:8080) in a browser
 
+## Config application properties
+- [§ Appendix A. Common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+
+## Documentation
+- [Testing the Web Layer](https://spring.io/guides/gs/testing-web/)
+- [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+- [Getting started with Spring Data JPA](https://github.com/pedalv/InsuranceApp)
+- [Embedding H2 in an Application](http://h2database.com/html/quickstart.html)
+- [Flyway](https://github.com/flyway/flyway)
+-- [Flyway First steps](https://flywaydb.org/getstarted/firststeps/maven)
+
 ## Task Description
 - The client would like estabelish an insurance contract with a company that give him/her the best deal.
 - An expert team will help him/her to find the best product available in the market from several companies.
@@ -46,42 +57,42 @@ $ mvn dependency:tree
 ## Overall flow
 #### Opprett avtale: Klient -> Integrasjonslag
 + Model:  type of product user want, information about user.
-+ GET /api/v1/productuser (What is the product user want + user information - form) -> [Get](http://localhost:8080/api/v1/productuser) 
-+ POST /api/v1/productuser (Send the product user want + user information - create) -> [POST](http://localhost:8080/api/v1/productuser) 
++ GET /api/v1/productuser (What is the product user want + user information - form) 
++ POST /api/v1/productuser (Send the product user want + user information - create) 
 
 #### Opprett kunde: Integrasjonslag -> Fagsystem
 + Model: create user in the company with best deal available.
-+ POST /api/v1/user (Send user information to create client in company A - create) -> [POST](http://localhost:8080/api/v1/user)
++ POST /api/v1/user (Send user information to create client in company A - create)
 
 #### Kundenummer: Fagsystem -> Integrasjonslag
-+ GET eller POST /api/v1/user (Send user client information - return clientnumber) -> [GET eller POST](http://localhost:8080/api/v1/user) 
++ GET eller POST /api/v1/user (Send user client information - return clientnumber)
 
 #### Opprett avtale: Integrasjonslag -> Fagsystem
 + Model: type of product user want
-+ POST /api/v1/product (Send information about product user want - form) -> [POST](http://localhost:8080/api/v1/product) 
++ POST /api/v1/product (Send information about product user want - form) 
 
 #### avtalenummer: Fagsystem -> Integrasjonslag
-+ GET eller POST /api/v1/service (Send number of the best service available - return servicenumber) -> [GET eller POST](http://localhost:8080/api/v1/service) 
++ GET eller POST /api/v1/service (Send number of the best service available - return servicenumber) 
 
 #### Send avtale til kunde: Integrasjonslag(Brevtjneste) -> Klient 
 + Model: type of service user get
-+ GET eller POST /api/v1/servicestatus (Get service information from  servicenumber - return serviceinformation) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
++ GET eller POST /api/v1/servicestatus (Get service information from  servicenumber - return serviceinformation)
 
 #### Status på utsendelse: Klient -> Integrasjonslag(Brevtjneste) 
 + Model: service payment status from user
-+ GET /api/v1/status (Get confirmation of payment - Status) -> [GET](http://localhost:8080/api/v1/status) 
++ GET /api/v1/status (Get confirmation of payment - Status) 
 
 #### Oppdater status til "avtale sendt": Integrasjonslag -> Fagsystem
 + Model: service payment status from user
-+ GET /api/v1/status (Get confirmation of payment from user - return Status) -> [GET](http://localhost:8080/api/v1/status) 
++ GET /api/v1/status (Get confirmation of payment from user - return Status) 
 
 #### avtalestatus: Fagsystem -> Integrasjonslag 
 + Model: service status from company A - Insurance is active
-+ GET /api/v1/status (Get confirmation that insurance is active now - return Status) -> [GET](http://localhost:8080/api/v1/status) 
++ GET /api/v1/status (Get confirmation that insurance is active now - return Status) 
 
 #### avtalenummer og status: Integrasjonslag -> Klient
 + Model: service information and it is active
-+ GET eller POST /api/v1/servicestatus (Get confirmation that insurance is active now - return Service+Status) -> [GET eller POST](http://localhost:8080/api/v1/servicestatus) 
++ GET eller POST /api/v1/servicestatus (Get confirmation that insurance is active now - return Service+Status)
 
 ## Model
 - product: What product user want, Product description
@@ -90,10 +101,30 @@ $ mvn dependency:tree
 - status: payment by user and service status, Pending, Active, Cancel 
 
 ## REST API
-- GET and POST /api/v1/productuser (view) -> [GET and POST](http://localhost:8080/api/v1/productuser) 
-- POST and GET /api/v1/user (create) -> [POST and GET](http://localhost:8080/api/v1/user) 
-- POST and GET /api/v1/product (view) -> [POST and GET](http://localhost:8080/api/v1/product) 
-- GET /api/v1/service (view) -> [GET](http://localhost:8080/api/v1/service) 
-- GET or POST /api/v1/servicestatus (view) -> [GET or POST](http://localhost:8080/api/v1/servicestatus) 
-- GET /api/v1/status (view) -> [GET](http://localhost:8080/api/v1/status) 
-- GET or POST /api/v1/servicestatus (view) -> [GET or POST](http://localhost:8080/api/v1/servicestatus) 
+- Service Stub
+- GET /api/v1/servicestub (list) -> [GET](http://localhost:8080/api/v1/servicestub) 
+- POST /api/v1/servicestub (add)
+- GET /api/v1/servicestub/{id} (view)
+- PUT /api/v1/servicestub/{id} (udpate)
+- DELETE /api/v1/servicestub/{id} (delete)
+
+- Service
+- GET /api/v1/service (list) -> [GET](http://localhost:8080/api/v1/service) 
+- POST /api/v1/service (add)
+- GET /api/v1/service/{id} (view)
+- PUT /api/v1/service/{id} (udpate)
+- DELETE /api/v1/service/{id} (delete)
+
+- Product
+- GET /api/v1/product (list) -> [GET](http://localhost:8080/api/v1/product) 
+- POST /api/v1/product (add)
+- GET /api/v1/product/{id} (view)
+- PUT /api/v1/product/{id} (udpate)
+- DELETE /api/v1/product/{id} (delete)
+
+- User
+- GET /api/v1/user (list) -> [GET](http://localhost:8080/api/v1/user) 
+- POST /api/v1/user (add)
+- GET /api/v1/user/{id} (view)
+- PUT /api/v1/user/{id} (udpate)
+- DELETE /api/v1/user/{id} (delete)
