@@ -2,6 +2,7 @@ package no.insurance.controller;
 
 import no.insurance.domain.Service;
 import no.insurance.helper.Insurance;
+import no.insurance.helper.State;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class ServiceStubControllerTest {
     public void setUp() throws Exception {
         expectedServices = new ArrayList<Service>();
         userId1 = 1L;
-        expectedService = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", 0, 3450.5D);
+        expectedService = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5D);
         expectedServices.add(expectedService);
 
         MockitoAnnotations.initMocks(this);
