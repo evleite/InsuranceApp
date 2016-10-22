@@ -20,16 +20,21 @@ public class ServiceController {
 
     @RequestMapping(value = "service", method = RequestMethod.GET)
     public List<Service> list() {
+
         return _serviceRepository.findAll();
     }
 
     @RequestMapping(value = "service", method = RequestMethod.POST)
     public Service create(@RequestBody Service service) {
+
         return _serviceRepository.saveAndFlush(service);
     }
 
     @RequestMapping(value = "service/{id}", method = RequestMethod.GET)
     public Service get(@PathVariable Long id) {
+
+        Service service = _serviceRepository.findOne(id);
+
         return _serviceRepository.findOne(id);
     }
 

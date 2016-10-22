@@ -14,7 +14,7 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
     @NotNull
-    Long userId;
+    Long userid;
     @NotNull
     Integer type;
     @NotNull
@@ -28,9 +28,9 @@ public class Service {
 
     }
 
-    public Service(Long id, Long userId, Integer type, String product, Integer state, Double price) {
+    public Service(Long id, Long userid, Integer type, String product, Integer state, Double price) {
         Id = id;
-        this.userId = userId;
+        this.userid = userid;
         this.type = type;
         this.product = product;
         this.state = state;
@@ -45,12 +45,12 @@ public class Service {
         Id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserid(Long userId) {
+        this.userid = userId;
     }
 
     public Integer getType() {
