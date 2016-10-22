@@ -1,8 +1,5 @@
 package no.insurance.domain;
 
-import no.insurance.helper.Insurance;
-import no.insurance.helper.Status;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +12,20 @@ public class Service {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
-    Insurance type;
+    Long userId;
+    Integer type;
     String product;
-    Status deal;
+    Integer state;
     Double price;
+
+    public Service(Long id, Long userId, Integer type, String product, Integer state, Double price) {
+        Id = id;
+        this.userId = userId;
+        this.type = type;
+        this.product = product;
+        this.state = state;
+        this.price = price;
+    }
 
     public Long getId() {
         return Id;
@@ -28,11 +35,19 @@ public class Service {
         Id = id;
     }
 
-    public Insurance getType() {
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Insurance type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -44,12 +59,12 @@ public class Service {
         this.product = product;
     }
 
-    public Status getDeal() {
-        return deal;
+    public Integer getState() {
+        return state;
     }
 
-    public void setDeal(Status deal) {
-        this.deal = deal;
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Double getPrice() {

@@ -1,7 +1,5 @@
 package no.insurance.domain;
 
-import no.insurance.helper.Insurance;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +13,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    Insurance type;
+    Integer type;
     String description;
+
+    public Product(Long id, Integer type, String description) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -26,11 +30,11 @@ public class Product {
         this.id = id;
     }
 
-    public Insurance getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Insurance type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
