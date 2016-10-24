@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/v1/")
-public class ServiceController {
+class ServiceController {
 
     @Autowired
     private ServiceRepository _serviceRepository;
@@ -32,8 +32,8 @@ public class ServiceController {
 
     @RequestMapping(value = "service/{id}", method = RequestMethod.GET)
     public Service get(@PathVariable Long id) {
-
-        Service service = _serviceRepository.findOne(id);
+       // For testing
+       // Service service = _serviceRepository.findOne(id);
 
         return _serviceRepository.findOne(id);
     }
