@@ -1,5 +1,6 @@
 package no.insurance.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.Entity;
@@ -13,18 +14,26 @@ import javax.validation.constraints.Size;
  * Created by p on 21/10/2016.
  */
 @Entity
+@JsonIgnoreProperties
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+
     @NotNull
+    @Size(max=255)
     String firstname;
+
     @NotNull
+    @Size(max=255)
     String lastname;
+
     @NotNull
     @Email
+    @Size(max=255)
     String email;
-    @Size(min = 6, max = 15)
+
+    @Size(min = 6, max = 30)
     String password;
 
     public User(){

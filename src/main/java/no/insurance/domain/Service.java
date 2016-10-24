@@ -1,27 +1,47 @@
 package no.insurance.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by p on 22/10/2016.
  */
 @Entity
+@JsonIgnoreProperties
 public class Service {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long Id;
+    Long id;
+
     @NotNull
     Long userid;
+
     @NotNull
+    @NumberFormat(style = NumberFormat.Style.NUMBER)
+    @Min(1)
+    @Max(7)
     Integer type;
+
     @NotNull
+    @Size(max=2000)
     String product;
+
     @NotNull
+    @NumberFormat(style = NumberFormat.Style.NUMBER)
+    @Min(1)
+    @Max(5)
     Integer state;
+
     @NotNull
+    @NumberFormat(style = NumberFormat.Style.NUMBER)
     Double price;
 
     public Service() {
@@ -29,7 +49,7 @@ public class Service {
     }
 
     public Service(Long id, Long userid, Integer type, String product, Integer state, Double price) {
-        Id = id;
+        id = id;
         this.userid = userid;
         this.type = type;
         this.product = product;
@@ -37,51 +57,68 @@ public class Service {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Service [id=" + id + ",  userid=" + userid + ", Insurance type=" + type + ", product=" + product + ", state=" + state + ", price=" + price + "]";
+    }
+
+
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+
+        id = id;
     }
 
     public Long getUserid() {
+
         return userid;
     }
 
     public void setUserid(Long userId) {
+
         this.userid = userId;
     }
 
     public Integer getType() {
+
         return type;
     }
 
     public void setType(Integer type) {
+
         this.type = type;
     }
 
     public String getProduct() {
+
         return product;
     }
 
     public void setProduct(String product) {
+
         this.product = product;
     }
 
     public Integer getState() {
+
         return state;
     }
 
     public void setState(Integer state) {
+
         this.state = state;
     }
 
     public Double getPrice() {
+
         return price;
     }
 
     public void setPrice(Double price) {
+
         this.price = price;
     }
 }
