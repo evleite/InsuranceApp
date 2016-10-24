@@ -38,6 +38,7 @@ $ mvn dependency:tree
 - [Embedding H2 in an Application](http://h2database.com/html/quickstart.html)
 - [Flyway](https://github.com/flyway/flyway)
 -- [Flyway First steps](https://flywaydb.org/getstarted/firststeps/maven)
+- [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
 
 ## Task Description
 - The client would like estabelish an insurance contract with a company that give him/her the best deal.
