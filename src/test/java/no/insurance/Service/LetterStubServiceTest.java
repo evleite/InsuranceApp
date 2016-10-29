@@ -59,8 +59,6 @@ public class LetterStubServiceTest {
         List<Letter> actualLetters = _letterSubServiceMock.list();
         assertNotNull(actualLetters);
         assertEquals(actualLetters.toArray().length,4);
-
-
     }
 
     @Test

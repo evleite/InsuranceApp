@@ -5,7 +5,6 @@ import no.insurance.helper.Insurance;
 import no.insurance.helper.State;
 import no.insurance.repository.LetterRepository;
 import no.insurance.service.LetterService;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -46,11 +45,6 @@ public class LetterServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testList() throws Exception {
         //MOCHITO
@@ -72,21 +66,70 @@ public class LetterServiceTest {
 
     @Test
     public void testCreate() throws Exception {
+        Letter letterCreate = new Letter(userId1, Insurance.THING.getValue(), "product got for my thing", State.ACTIVE.getValue(), 7999.5);
 
+        //MOCHITO
+        when(_letterRepositoryMock.save(letterCreate)).thenReturn(letterCreate);
+
+        Letter created = _letterServiceMock.create(letterCreate);
+        assertNotNull(created);
+
+        //verify if method was call
+        verify(_letterRepositoryMock).save(letterCreate);
+
+        assertEquals(created.toString(),letterCreate.toString());
     }
 
     @Test
     public void testGet() throws Exception {
+        Letter lettergetOne = new Letter(1L, userId1, Insurance.THING.getValue(), "product got for my thing", State.ACTIVE.getValue(), 7999.5);
 
+        //MOCHITO
+        when(_letterRepositoryMock.findOne(1L)).thenReturn(lettergetOne);
+
+        Letter getActual = _letterServiceMock.get(1L);
+        assertNotNull(getActual);
+
+        //verify if method was call
+        verify(_letterRepositoryMock).findOne(1L);
     }
 
     @Test
     public void testUpdate() throws Exception {
 
+        Letter letterfind = new Letter(1L, userId1, Insurance.THING.getValue(), "product got for my thing", State.ACTIVE.getValue(), 7999.5);
+        Letter letterChange = new Letter(1L, userId1, Insurance.THING.getValue(), "product got for my thing", State.ACTIVE.getValue(), 0.5);
+
+        //MOCHITO
+        when(_letterRepositoryMock.findOne(1L)).thenReturn(letterfind);
+        when(_letterRepositoryMock.save(letterChange)).thenReturn(letterChange);
+
+        Letter LetterUpdated = _letterServiceMock.update(1L, letterChange);
+
+        //verify if method was call
+        verify(_letterRepositoryMock).findOne(1L);
+        verify(_letterRepositoryMock).save(letterfind);
+
+        assertEquals(letterfind.toString(),letterChange.toString());
+        assertNotNull(letterfind);
+
     }
 
     @Test
     public void testDelete() throws Exception {
+
+        Letter letterdelete = new Letter(1L, userId1, Insurance.THING.getValue(), "product got for my thing", State.ACTIVE.getValue(), 7999.5);
+
+        //MOCHITO
+        when(_letterRepositoryMock.findOne(1L)).thenReturn(letterdelete);
+
+
+        Letter LetterUpdated = _letterServiceMock.delete(1L);
+
+        //verify if method was call
+        verify(_letterRepositoryMock).findOne(1L);
+
+
 
     }
 }

@@ -27,7 +27,7 @@ public class LetterService {
     @RequestMapping(value = "letter", method = RequestMethod.POST)
     public Letter create(@RequestBody Letter letter) {
 
-        return _letterRepository.saveAndFlush(letter);
+        return _letterRepository.save(letter);
     }
 
     @RequestMapping(value = "letter/{id}", method = RequestMethod.GET)
@@ -41,7 +41,7 @@ public class LetterService {
 
         Letter existingLetter = _letterRepository.findOne(id);
         BeanUtils.copyProperties(letter, existingLetter);
-        return _letterRepository.saveAndFlush(existingLetter);
+        return _letterRepository.save(existingLetter);
 
     }
 
@@ -51,7 +51,6 @@ public class LetterService {
         Letter existingLetter = _letterRepository.findOne(id);
         _letterRepository.delete(existingLetter);
         return existingLetter;
-
     }
 
 }
