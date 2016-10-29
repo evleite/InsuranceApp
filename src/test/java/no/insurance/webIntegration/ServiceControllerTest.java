@@ -41,7 +41,7 @@ public class ServiceControllerTest {
 
         //DATABASE is not empty
         assertThat(responseJson.size(), is(1));
-        assertThat(responseJson.toString(), equalTo("[{\"userid\":1,\"type\":2,\"product\":\"product got for my car\",\"state\":1,\"price\":3450.5,\"id\":1}]"));
+        assertThat(responseJson.toString(), equalTo("[{\"id\":1,\"userid\":1,\"type\":2,\"product\":\"product got for my car\",\"state\":1,\"price\":3450.5}]"));
 
         assertThat(responseJson.isMissingNode(), is(false));
     }
