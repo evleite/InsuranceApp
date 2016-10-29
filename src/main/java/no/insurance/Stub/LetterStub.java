@@ -1,6 +1,6 @@
 package no.insurance.Stub;
 
-import no.insurance.domain.Service;
+import no.insurance.domain.Letter;
 import no.insurance.helper.Insurance;
 import no.insurance.helper.State;
 
@@ -10,11 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by p on 22/10/2016.
+ * Created by p on 29/10/2016.
  */
 public class LetterStub {
-
-    private static Map<Long, Service> services = new HashMap<Long, Service>();
+    private static Map<Long, Letter> letterMap = new HashMap<Long, Letter>();
     private static Long idIndex = 3L;
 
     private static Long userId1 = 1L;
@@ -22,14 +21,14 @@ public class LetterStub {
     private static Long userId3 = 3L;
 
     static {
-        Service service = new Service(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5);
-        services.put(1L, service);
+        Letter letter = new Letter(1L, userId1, Insurance.CAR.getValue(), "product got for my car", State.SEND.getValue(), 3450.5);
+        letterMap.put(1L, letter);
 
-        service = new Service(2L, userId2, Insurance.HOME.getValue(), "product got for my home", State.PAY.getValue(), 3450.5);
-        services.put(2L, service);
+        letter = new Letter(2L, userId2, Insurance.HOME.getValue(), "product got for my home", State.PAY.getValue(), 3450.5);
+        letterMap.put(2L, letter);
 
-        service = new Service(3L, userId3, Insurance.BOAT.getValue(), "product got for my boat", State.ACTIVE.getValue(), 3450.5);
-        services.put(3L, service);
+        letter = new Letter(3L, userId3, Insurance.BOAT.getValue(), "product got for my boat", State.ACTIVE.getValue(), 3450.5);
+        letterMap.put(3L, letter);
 
         /*
             Long Id;
@@ -42,39 +41,35 @@ public class LetterStub {
 
     }
 
-    public static List<Service> list() {
+    public static List<Letter> list() {
 
-        return new ArrayList<Service>(services.values());
+        return new ArrayList<Letter>(letterMap.values());
 
     }
 
-    public static Service create(Service wreck) {
+    public static Letter create(Letter letter) {
 
         idIndex += idIndex;
-        wreck.setId(idIndex);
-        services.put(idIndex, wreck);
-        return wreck;
+        letter.setId(idIndex);
+        letterMap.put(idIndex, letter);
+        return letter;
     }
 
-    public static Service get(Long id) {
+    public static Letter get(Long id) {
 
-        return services.get(id);
+        return letterMap.get(id);
     }
 
-    public static Service update(Long id, Service service) {
+    public static Letter update(Long id, Letter letter) {
 
-        services.put(id, service);
-        return service;
+        letterMap.put(id, letter);
+        return letter;
 
     }
 
-    public static Service delete(Long id) {
+    public static Letter delete(Long id) {
 
-        return services.remove(id);
+        return letterMap.remove(id);
     }
-
-
-
-
 
 }

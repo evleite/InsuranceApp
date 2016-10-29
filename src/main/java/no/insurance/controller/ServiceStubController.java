@@ -1,6 +1,6 @@
 package no.insurance.controller;
 
-import no.insurance.Stub.LetterStub;
+import no.insurance.Stub.ServiceStub;
 import no.insurance.domain.Service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -16,30 +16,30 @@ public class ServiceStubController {
 
     @RequestMapping(value = "servicestub", method = RequestMethod.GET)
     public List<Service> list() {
-        return LetterStub.list();
+        return ServiceStub.list();
     }
 
     @RequestMapping(value = "servicestub", method = RequestMethod.POST)
     public Service create(@RequestBody Service service) {
-        return LetterStub.create(service);
+        return ServiceStub.create(service);
     }
 
     @RequestMapping(value = "servicestub/{id}", method = RequestMethod.GET)
     public Service get(@PathVariable Long id) {
-        return LetterStub.get(id);
+        return ServiceStub.get(id);
     }
 
     @RequestMapping(value = "servicestub/{id}", method = RequestMethod.PUT)
     public Service update(@PathVariable Long id, @RequestBody Service service) {
-        Service existingService = LetterStub.get(id);
+        Service existingService = ServiceStub.get(id);
         BeanUtils.copyProperties(service, existingService);
-        return LetterStub.update(id, existingService);
+        return ServiceStub.update(id, existingService);
     }
 
     @RequestMapping(value = "servicestub/{id}", method = RequestMethod.DELETE)
     public Service delete(@PathVariable Long id) {
-        Service existingService = LetterStub.get(id);
-        LetterStub.delete(id);
+        Service existingService = ServiceStub.get(id);
+        ServiceStub.delete(id);
         return existingService;
 
         //NOTE: return void is possible also
