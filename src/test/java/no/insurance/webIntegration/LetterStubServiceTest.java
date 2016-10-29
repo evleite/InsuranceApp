@@ -39,6 +39,6 @@ public class LetterStubServiceTest {
         //LIST has 3 objjects
         assertThat(responseJson.size(), is(3));
         assertThat(responseJson.isMissingNode(), is(false));
-        assertThat(responseJson.toString(), equalTo("[{\"id\":1,\"userid\":1,\"type\":2,\"product\":\"product got for my car\",\"state\":1,\"price\":3450.5},{\"id\":2,\"userid\":2,\"type\":1,\"product\":\"product got for my home\",\"state\":2,\"price\":3450.5},{\"id\":3,\"userid\":3,\"type\":5,\"product\":\"product got for my boat\",\"state\":4,\"price\":3450.5}]"));
+        assertThat(responseJson.toString(), equalTo("[{\"id\":1,\"userid\":1,\"type\":2,\"product\":\"product got for my car\",\"state\":1,\"price\":3450.5},{\"id\":2,\"userid\":2,\"type\":1,\"product\":\"product got for my home\",\"state\":2,\"price\":3450.5},{\"id\":3,\"userid\":3,\"type\":5,\"product\":\"product got for my boat\",\"state\":4,\"price\":799.0}]"));
     }
 }
