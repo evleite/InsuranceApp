@@ -12,11 +12,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by p on 22/10/2016.
+ * Created by p on 29/10/2016.
  */
 @Entity
 @JsonIgnoreProperties
-public class Service {
+public class Letter {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
@@ -44,11 +44,11 @@ public class Service {
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     Double price;
 
-    public Service() {
+    public Letter() {
 
     }
 
-    public Service(Long id, Long userid, Integer type, String product, Integer state, Double price) {
+    public Letter(Long id, Long userid, Integer type, String product, Integer state, Double price) {
         this.id = id;
         this.userid = userid;
         this.type = type;
