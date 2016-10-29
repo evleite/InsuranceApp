@@ -1,6 +1,6 @@
 package no.insurance.repository;
 
-import no.insurance.domain.Service;
+import no.insurance.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,18 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 
 /**
- * Created by p on 22/10/2016.
+ * Created by p on 29/10/2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class ServiceRepositoryTest {
+public class UserRepositoryTest {
 
     @Autowired
-    private ServiceRepository _serviceRepository;
+    private UserRepository _userRepository;
 
     @Test
     public void testFindAll() {
-        List<Service> services = _serviceRepository.findAll();
-        assertThat(services.size(), is(greaterThanOrEqualTo(10)));
+        List<User> letters = _userRepository.findAll();
+        assertThat(letters.size(), is(greaterThanOrEqualTo(0)));
     }
 }
