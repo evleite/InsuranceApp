@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by p on 22/10/2016.
  */
-public class ServiceStub {
+public class LetterStub {
 
     private static Map<Long, Service> services = new HashMap<Long, Service>();
     private static Long idIndex = 3L;
