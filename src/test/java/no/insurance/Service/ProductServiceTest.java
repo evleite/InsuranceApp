@@ -103,14 +103,14 @@ public class ProductServiceTest {
         when(_productRepositoryMock.findOne(1L)).thenReturn(productfind);
         when(_productRepositoryMock.save(productChange)).thenReturn(productChange);
 
-        Product userUpdated = _productServiceMock.update(1L, productChange);
+        _productServiceMock.update(1L, productChange);
 
         //verify if method was call
         verify(_productRepositoryMock).findOne(1L);
         verify(_productRepositoryMock).save(productfind);
 
-        assertEquals(productfind.toString(),productChange.toString());
         assertNotNull(productfind);
+        assertEquals(productfind.getDescription(),productChange.getDescription());
 
     }
 

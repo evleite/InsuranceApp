@@ -104,13 +104,13 @@ public class LetterServiceTest {
         when(_letterRepositoryMock.findOne(1L)).thenReturn(letterfind);
         when(_letterRepositoryMock.save(letterChange)).thenReturn(letterChange);
 
-        Letter LetterUpdated = _letterServiceMock.update(1L, letterChange);
+        _letterServiceMock.update(1L, letterChange);
 
         //verify if method was call
         verify(_letterRepositoryMock).findOne(1L);
         verify(_letterRepositoryMock).save(letterfind);
 
-        assertEquals(letterfind.toString(),letterChange.toString());
+        assertEquals(letterfind.getPrice(),letterChange.getPrice());
         assertNotNull(letterfind);
 
     }

@@ -102,13 +102,13 @@ public class UserServiceTest {
         when(_userRepositoryMock.findOne(1L)).thenReturn(userfind);
         when(_userRepositoryMock.save(userChange)).thenReturn(userChange);
 
-        User userUpdated = _userServiceMock.update(1L, userChange);
+        _userServiceMock.update(1L, userChange);
 
         //verify if method was call
         verify(_userRepositoryMock).findOne(1L);
         verify(_userRepositoryMock).save(userfind);
 
-        assertEquals(userfind.toString(),userChange.toString());
+        assertEquals(userfind.getPassword(),userChange.getPassword());
         assertNotNull(userfind);
 
     }
