@@ -28,4 +28,15 @@ public class LetterRepositoryTest {
         List<Letter> letters = _letterRepository.findAll();
         assertThat(letters.size(), is(greaterThanOrEqualTo(0)));
     }
+
+    @Test
+    public void test_located_LetterService(){
+        /*
+        //_letterRepository.findAll();
+        _letterRepository.saveAndFlush(letter);
+        _letterRepository.findOne(id);
+        _letterRepository.saveAndFlush(existingLetter);
+        _letterRepository.delete(existingLetter);
+        */
+    }
 }

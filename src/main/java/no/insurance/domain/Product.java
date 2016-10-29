@@ -36,6 +36,11 @@ public class Product {
 
     }
 
+    public Product(Integer type, String description) {
+        this.type = type;
+        this.description = description;
+    }
+
     public Product(Long id, Integer type, String description) {
         this.id = id;
         this.type = type;

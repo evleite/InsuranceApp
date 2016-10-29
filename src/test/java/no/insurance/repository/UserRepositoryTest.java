@@ -28,4 +28,15 @@ public class UserRepositoryTest {
         List<User> letters = _userRepository.findAll();
         assertThat(letters.size(), is(greaterThanOrEqualTo(0)));
     }
+
+    @Test
+    public void test_located_UserService(){
+        /*
+        //_userRepository.findAll();
+        _userRepository.saveAndFlush(letter);
+        _userRepository.findOne(id);
+        _userRepository.saveAndFlush(existingLetter);
+        _userRepository.delete(existingLetter);
+        */
+    }
 }

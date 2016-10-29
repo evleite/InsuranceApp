@@ -29,5 +29,15 @@ public class ProductRepositoryTest {
         assertThat(letters.size(), is(greaterThanOrEqualTo(0)));
     }
 
+    @Test
+    public void test_located_ProctuctService(){
+        /*
+        //_productRepository.findAll();
+        _productRepository.saveAndFlush(letter);
+        _productRepository.findOne(id);
+        _productRepository.saveAndFlush(existingLetter);
+        _productRepository.delete(existingLetter);
+        */
+    }
 
 }

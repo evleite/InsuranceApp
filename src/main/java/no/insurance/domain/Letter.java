@@ -48,6 +48,14 @@ public class Letter {
 
     }
 
+    public Letter(Long userid, Integer type, String product, Integer state, Double price) {
+        this.userid = userid;
+        this.type = type;
+        this.product = product;
+        this.state = state;
+        this.price = price;
+    }
+
     public Letter(Long id, Long userid, Integer type, String product, Integer state, Double price) {
         this.id = id;
         this.userid = userid;

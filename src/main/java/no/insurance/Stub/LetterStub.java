@@ -49,7 +49,7 @@ public class LetterStub {
 
     public static Letter create(Letter letter) {
 
-        idIndex += idIndex;
+        idIndex += 1;
         letter.setId(idIndex);
         letterMap.put(idIndex, letter);
         return letter;
