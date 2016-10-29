@@ -1,10 +1,10 @@
 package no.insurance.controller;
 
+import no.insurance.domain.Letter;
 import no.insurance.domain.Product;
-import no.insurance.domain.Service;
 import no.insurance.domain.User;
+import no.insurance.repository.LetterRepository;
 import no.insurance.repository.ProductRepository;
-import no.insurance.repository.ServiceRepository;
 import no.insurance.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 public class HomeController {
 
     @Autowired
-    private ServiceRepository _serviceRepository;
+    private LetterRepository _letterRepository;
 
     @Autowired
     private UserRepository _userRepository;
@@ -48,26 +48,26 @@ public class HomeController {
         //TODO: Send to user for he/she pay it
 
         //TODO: Send to user that service is active after user paid it
-        long serviceid = id.longValue();
+        long letterid = id.longValue();
 
 
         //Example how to wait for several request to send answer to user
         Future<User> user = null;
         Future<Product> product = null;
-        Future<Service> service = null;
+        Future<Letter> letter = null;
 
         try {
             user = findUser(userid);
             product = findProduct(productid);
-            service = findService(serviceid);
+            letter = findLetter(letterid);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        while(!(user.isDone() && product.isDone() && service.isDone())) {
+        while(!(user.isDone() && product.isDone() && letter.isDone())) {
             //Information available to send to user
             user.toString();
-            service.toString();
-            service.toString();
+            letter.toString();
+            product.toString();
         }
     }
 
@@ -89,11 +89,11 @@ public class HomeController {
 
 
     @Async
-    public Future<Service> findService(Long serviceid) throws InterruptedException {
-        Service results = _serviceRepository.getOne(serviceid);
+    public Future<Letter> findLetter(Long letterid) throws InterruptedException {
+        Letter results = _letterRepository.getOne(letterid);
         // Artificial delay of 1s for demonstration purposes
         Thread.sleep(1000L);
-        return new AsyncResult<Service>(results);
+        return new AsyncResult<Letter>(results);
     }
 
 
