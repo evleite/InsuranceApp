@@ -32,26 +32,26 @@ public class LetterService {
 
     @RequestMapping(value = "letter/{id}", method = RequestMethod.GET)
     public Letter get(@PathVariable Long id) {
-        // For testing
-        // Letter Letter = _letterRepository.findOne(id);
 
         return _letterRepository.findOne(id);
     }
 
     @RequestMapping(value = "letter/{id}", method = RequestMethod.PUT)
     public Letter update(@PathVariable Long id, @RequestBody Letter letter) {
+
         Letter existingLetter = _letterRepository.findOne(id);
         BeanUtils.copyProperties(letter, existingLetter);
         return _letterRepository.saveAndFlush(existingLetter);
+
     }
 
     @RequestMapping(value = "letter/{id}", method = RequestMethod.DELETE)
     public Letter delete(@PathVariable Long id) {
+
         Letter existingLetter = _letterRepository.findOne(id);
         _letterRepository.delete(existingLetter);
         return existingLetter;
 
-        //NOTE: return void is possible also
     }
 
 }
