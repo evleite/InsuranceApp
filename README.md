@@ -4,6 +4,15 @@ Case insurance contract project for Spring Boot
 ## Location
 InsuranceApp is located on [https://github.com/pedalv/InsuranceApp.git](https://github.com/pedalv/InsuranceApp.git)
 
+## How To Run it
+1. [Run](https://github.com/pedalv/InsuranceApp/blob/master/src/main/java/no/insurance/InsuranceAppApplication.java) from IntelliJ IDEA 
+2. [Open database](http://localhost:8080/h2/)
+2.1 [application.properties](https://github.com/pedalv/InsuranceApp/blob/master/src/main/resources/application.properties)
+2.1 [Create database](https://github.com/pedalv/InsuranceApp/tree/master/src/main/resources/db.migration)
+3. Open [http://localhost:8080/insurance](http://localhost:8080/insurance) 
+3.1 Output will be: Product_id: <nnn>, State: 4
+3.1.1 Code located on [insurance method](https://github.com/pedalv/InsuranceApp/blob/master/src/main/java/no/insurance/controller/HomeController.java)
+
 ## Tools
 - [Apache Maven](https://maven.apache.org/download.cgi) version: 3.3.9
 - [Java version](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html): 1.8.0_101, vendor: Oracle Corporation
@@ -102,28 +111,28 @@ $ mvn dependency:tree
 - status: payment by user and service status, Pending, Active, Cancel 
 
 ## REST API
-- Service Stub
+#### Service Stub
 - GET /api/v1/servicestub (list) -> [GET](http://localhost:8080/api/v1/servicestub) 
 - POST /api/v1/servicestub (add)
 - GET /api/v1/servicestub/{id} (view)
 - PUT /api/v1/servicestub/{id} (udpate)
 - DELETE /api/v1/servicestub/{id} (delete)
 
-- Service
+#### Service
 - GET /api/v1/service (list) -> [GET](http://localhost:8080/api/v1/service) 
 - POST /api/v1/service (add) -> [POST](http://localhost:8080/api/v1/service?userid=1&type=2&product='product got for my car'&state=1&price=3450.5)
 - GET /api/v1/service/{id} (view) -> [GET](http://localhost:8080/api/v1/service/1)
 - PUT /api/v1/service/{id} (udpate) -> [PUT](http://localhost:8080/api/v1/service?userid=1&type=3&product='product got for my car'&state=2&price=1450.5)
 - DELETE /api/v1/service/{id} (delete) -> [DETELE](http://localhost:8080/api/v1/service/1)
 
-- Product
+#### Product
 - GET /api/v1/product (list) -> [GET](http://localhost:8080/api/v1/product) 
 - POST /api/v1/product (add)
 - GET /api/v1/product/{id} (view)
 - PUT /api/v1/product/{id} (udpate)
 - DELETE /api/v1/product/{id} (delete)
 
-- User
+#### User
 - GET /api/v1/user (list) -> [GET](http://localhost:8080/api/v1/user) 
 - POST /api/v1/user (add)
 - GET /api/v1/user/{id} (view)
