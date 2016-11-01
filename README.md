@@ -112,18 +112,18 @@ $ mvn dependency:tree
 
 ## REST API
 #### Service Stub
-- GET /api/v1/servicestub (list) -> [GET](http://localhost:8080/api/v1/servicestub) 
+- GET /api/v1/servicestub (list) -> [GET](http://localhost:8080/api/v1/letterstub) 
 - POST /api/v1/servicestub (add)
 - GET /api/v1/servicestub/{id} (view)
 - PUT /api/v1/servicestub/{id} (udpate)
 - DELETE /api/v1/servicestub/{id} (delete)
 
-#### Service
-- GET /api/v1/service (list) -> [GET](http://localhost:8080/api/v1/service) 
-- POST /api/v1/service (add) -> [POST](http://localhost:8080/api/v1/service?userid=1&type=2&product='product got for my car'&state=1&price=3450.5)
-- GET /api/v1/service/{id} (view) -> [GET](http://localhost:8080/api/v1/service/1)
-- PUT /api/v1/service/{id} (udpate) -> [PUT](http://localhost:8080/api/v1/service?userid=1&type=3&product='product got for my car'&state=2&price=1450.5)
-- DELETE /api/v1/service/{id} (delete) -> [DETELE](http://localhost:8080/api/v1/service/1)
+#### Letter
+- GET /api/v1/service (list) -> [GET](http://localhost:8080/api/v1/letter) 
+- POST /api/v1/service (add) 
+- GET /api/v1/service/{id} (view) 
+- PUT /api/v1/service/{id} (udpate) 
+- DELETE /api/v1/service/{id} (delete)
 
 #### Product
 - GET /api/v1/product (list) -> [GET](http://localhost:8080/api/v1/product) 
