@@ -29,6 +29,12 @@ public class Product {
     Integer type;
 
     @NotNull
+    @NumberFormat(style = NumberFormat.Style.NUMBER)
+    @Min(1)
+    @Max(6)
+    Integer state;
+
+    @NotNull
     @Size(max=2000)
     String description;
 
@@ -36,22 +42,23 @@ public class Product {
 
     }
 
-    public Product(Integer type, String description) {
+    public Product(Integer type, Integer state, String description) {
         this.type = type;
+        this.state = state;
         this.description = description;
     }
 
-    public Product(Long id, Integer type, String description) {
+    public Product(Long id, Integer type, Integer state, String description) {
         this.id = id;
         this.type = type;
+        this.state = state;
         this.description = description;
     }
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", Insurance type=" + type + ", description=" + description + "]";
+        return "Product [id=" + id + ", Insurance type=" + type + ", Satete=" + state + ", description=" + description + "]";
     }
-
 
     public Long getId() {
         return id;
@@ -67,6 +74,14 @@ public class Product {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public String getDescription() {

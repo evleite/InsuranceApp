@@ -38,7 +38,7 @@ public class ProductServiceTest {
     public void setUp() throws Exception {
         expectedProducts = new ArrayList<Product>();
         userId1 = 1L;
-        expectedProduct = new Product(1L, 1, "Information about my car and me");
+        expectedProduct = new Product(1L, 1, 6, "Information about my car and me");
         expectedProducts.add(expectedProduct);
 
         MockitoAnnotations.initMocks(this);
@@ -65,7 +65,7 @@ public class ProductServiceTest {
 
     @Test
     public void testCreate() throws Exception {
-        Product productCreate = new Product(1L, 1, "Information about my car and me");
+        Product productCreate = new Product(1L, 1, 6, "Information about my car and me");
 
         //MOCHITO
         when(_productRepositoryMock.save(productCreate)).thenReturn(productCreate);
@@ -81,7 +81,7 @@ public class ProductServiceTest {
 
     @Test
     public void testGet() throws Exception {
-        Product usergetOne = new Product(1L, 1, "Information about my car and me");
+        Product usergetOne = new Product(1L, 1, 6, "Information about my car and me");
 
         //MOCHITO
         when(_productRepositoryMock.findOne(1L)).thenReturn(usergetOne);
@@ -96,8 +96,8 @@ public class ProductServiceTest {
     @Test
     public void testUpdate() throws Exception {
 
-        Product productfind = new Product(1L, 1, "Information about my car and me");
-        Product productChange = new Product(1L, 1, "Information about my boat and me");
+        Product productfind = new Product(1L, 1, 6, "Information about my car and me");
+        Product productChange = new Product(1L, 1, 6, "Information about my boat and me");
 
         //MOCHITO
         when(_productRepositoryMock.findOne(1L)).thenReturn(productfind);
@@ -117,7 +117,7 @@ public class ProductServiceTest {
     @Test
     public void testDelete() throws Exception {
 
-        Product productdelete = new Product(1L, 1, "Information about my car and me");
+        Product productdelete = new Product(1L, 1, 6, "Information about my car and me");
 
         //MOCHITO
         when(_productRepositoryMock.findOne(1L)).thenReturn(productdelete);

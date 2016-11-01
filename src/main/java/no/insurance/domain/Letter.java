@@ -37,7 +37,7 @@ public class Letter {
     @NotNull
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     @Min(1)
-    @Max(5)
+    @Max(6)
     Integer state;
 
     @NotNull

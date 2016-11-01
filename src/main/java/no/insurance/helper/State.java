@@ -8,7 +8,8 @@ public enum State {
     PAY(2),
     CANCEL(3),
     ACTIVE(4),
-    INACTIVE(5);
+    INACTIVE(5),
+    PENDING(6);
 
     private int value;
 
