@@ -111,7 +111,7 @@ $ mvn dependency:tree
 - status: payment by user and service status, Pending, Active, Cancel 
 
 ## REST API
-#### Service Stub
+#### Letter Stub
 - GET /api/v1/letterstub (list) -> [GET](http://localhost:8080/api/v1/letterstub) 
 - POST /api/v1/letterstub (add)
 - GET /api/v1/letterstub/{id} (view)
